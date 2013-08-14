@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web apps</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="" />
+  <meta name="author" content="arthur.flam@gmail.com,arthur-flam,Arthur,Flam">
+  <link rel="shortcut icon" href="assets/img/poirot.jpg">
+  <link rel="alternate" type="application/rss+xml" href="">
+  <link href="../libraries/frameworks/purus/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../libraries/frameworks/purus/css/bootstrap-responsive.min.css" rel="stylesheet" />
+  <link href="../libraries/frameworks/purus/css/main.css" rel="stylesheet" />
+  <link href="../libraries/highlighters/prettify/css/twitter-bootstrap.css" rel="stylesheet">
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,200,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <style>
+	  #sidebar .sidebar-nav .info h3 a:hover, a:hover { color: #01A9DB; }
+	  #sidebar .sidebar-nav #avatar img, #sidebar .sidebar-nav ul#links li.active a { border-color: #01A9DB; }
+	  #sidebar .sidebar-nav ul#links li a:hover { background: #01A9DB; }
+    p {text-align: justify;}
+  </style>
+  <link rel="stylesheet" href = "../assets/css/custom.css">
+<link rel="stylesheet" href = "../assets/css/ribbons.css">
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div id="sidebar" class="span2">
+			  <div class="sidebar-nav sidebar-nav-fixed">
+			    <a href="https://github.com/arthur-flam/FormationR">
+      <img style="position: absolute; top: 0; left: 100px; border: 0; height: 100px; z-index: 1;" 
+        alt="Fork me on GitHub" 
+        src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" >
+    </a>
+	  <div class="info">
+				    <p id="avatar"><a href="#"><img alt="Title" src="http://ramnathv.github.com/poirotBlog/assets/img/poirot.jpg " /></a></p>
+				    <h3><a href="/">Formation R </a></h3>
+					  <p class="description">Des ressources pour apprentis Data Scientists</p>
+					</div>
+					<ul id="links">
+			        <li><a href="http://ramnathv.github.com/poirotBlog/index.html">Home</a></li>
+        <li><a href="http://ramnathv.github.com/poirotBlog/about.html">About</a></li>
+      
+        <li><a href="http://github.com/arthur-flam" id="Github-link">Github</a></li>
+                
+        <li><a href="http://twitter.com/#!/ArthurFlam" id="Twitter-link">Twitter</a></li>
+      
+			    </ul>
+				</div>
+			</div>
+						<div id="content" class='span10'>
+				<div id="post-wrapper">
+          <ol id="posts">
+            <li class="post">
+              <h3>
+                <a href="#">Web apps</a>
+              </h3>
+              <span>2013-08-14</span><br/>
+               <a class='label label-success' href='https://raw.github.com/ramnathv/poirotBlog/gh-pages/web.Rmd'>Source</a>
+              <h1>Création de web app avec R</h1>
+<h2>Shiny</h2>
+
+<p>C&#39;est la solution à la mode pour faire des applications web.
+Deux applications ont été réalisées à Quantmetry :</p>
+
+<ul>
+<li>Hotelmetry</li>
+<li>Lead-metry</li>
+</ul>
+
+<p>Pour s&#39;y mettre :
+1. <a href="http://rstudio.github.io/shiny/tutorial/">Tutoriel</a> (20min)
+2. <a href="http://cran.r-project.org/web/packages/shiny/shiny.pdf">Le manuel sur CRAN</a>
+3. <a href="https://github.com/rstudio/shiny/">La page sur github</a>
+4. <a href="https://groups.google.com/forum/#!forum/shiny-discuss">Le forum de discussions</a></p>
+
+<p>En deux mots, un petit fichier <code>ui.r</code> spécifie l&#39;interface HTML/CSS.
+Les calculs et le traitement des inputs sont traités par un fichier <code>server.r</code>, qui renvoit des output.
+La communication est rapide et le serveur qui se cache dessous c&#39;est <a href="http://nodejs.org/"><code>node.js</code></a></p>
+
+<p>Pour en savoir plus :</p>
+
+<ul>
+<li><a href="http://www.r-bloggers.com/search/shiny">Des articles récents sur r-bloggers</a></li>
+<li><a href="http://lamages.blogspot.fr/2013/02/first-steps-of-using-googlevis-on-shiny.html">Intégration avec GoogleVis</a></li>
+</ul>
+
+<p>Pour ce qui concerne l&#39;hébergement des application <code>shiny</code> sur <code>shiny-server</code>, se référer à la fiche concernant <em>R sur un serveur</em>.</p>
+
+<h2>Graphiques interactifs</h2>
+
+<p>Un des attendus du web c&#39;est l&#39;interactivité. Sans ça, on ne s&#39;amuse pas vraiment !</p>
+
+<h3><code>rCharts</code></h3>
+
+<p>Le package <code>rCharts</code> permet d&#39;utiliser les librairies Javascript, en particulier <code>d3.js</code>, pour réaliser des graphiques dynamiques.
+Le package génére du code HTML/JS qui peut ensuite être repris par <code>shiny</code> ou bien directement intégré à une page HTML.</p>
+
+<p><a href="http://rcharts.io/">Site de rCharts</a></p>
+
+<ul>
+<li><a href="http://rcharts.io/gallery.html">Gallerie</a></li>
+<li><a href="http://ramnathv.github.io/rCharts/">Quickstart</a></li>
+<li><a href="http://ramnathv.github.io/rChartsShiny/">Intégration avec <code>shiny</code></a>
+Voir aussi les <a href="http://timelyportfolio.blogspot.fr/2013/07/slidify-did-that-and-that-and.html">supers exemples et articles</a> de timelyportfolio (contributeur) concernant <code>rCharts</code>, <code>shiny</code> ou <code>GoogleVis</code>.</li>
+</ul>
+
+<h3>GoogleVis</h3>
+
+<p>C&#39;est une alternative à <code>rCharts</code> pour avoir des graphiques interactifs.
+Il ne faut pas rater leurs <a href="https://code.google.com/p/google-motion-charts-with-r/">Motion Charts</a>, chers à <a href="https://www.youtube.com/results?q=hans+rosling&amp;um=1&amp;ie=UTF-8&amp;gl=FR&amp;sa=N&amp;tab=w1">Hans Rosling</a></p>
+
+<h3>D3.js</h3>
+
+<p>C&#39;est <strong>la</strong> librairie pour faire des graphiques. 
+Dans la plupart des cas le plus simple est d&#39;utiliser les libraires JS qui en sont issues pour faire des graphiques. Se référer à celles qui sont supportées par <code>rCharts</code> :) </p>
+
+<h2>Inspiration</h2>
+
+<ul>
+<li><a href="http://timelyportfolio.blogspot.fr/2013/05/r-creates-d3javascript-charts-in.html">Plein d&#39;autres exemples avec rCharts</a></li>
+<li><a href="http://www.nytimes.com/interactive/2012/02/13/us/politics/2013-budget-proposal-graphic.html">2013 US budget proposal</a></li>
+<li><a href="http://bost.ocks.org/mike/">Mike Bostocks&#39;s portfolio</a></li>
+<li><a href="http://www.grahaphics.com/">Graham Roberts&#39;s portfolio</a></li>
+<li><a href="http://gephi.org/features/">Gephi</a>, pour des graphes</li>
+</ul>
+
+              <div id="disqus_thread"></div>
+            </li>
+          </ol>
+          <div class="pagination">
+            <ul>
+              <li><a href="http://ramnathv.github.com/poirotBlog/">&#171; Back Home</a></li>
+            </ul>
+          </div> 
+        </div>
+			</div>
+		</div>
+  </div>
+</body>
+  <script src='../libraries/frameworks/purus/js/bootstrap.min.js'></script>
+  <script>
+      var disqus_developer = 1;
+      var disqus_shortname = 'slidify'; 
+      // required: replace example with your forum shortname
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); 
+          dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || 
+           document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="../libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- Google Prettify -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+  <script src='../libraries/highlighters/prettify/js/lang-r.js'></script>
+  <script>
+    var pres = document.getElementsByTagName("pre");
+    for (var i=0; i < pres.length; ++i) {
+      pres[i].className = "prettyprint linenums";
+    }
+    prettyPrint();
+  </script>
+  <!-- End Google Prettify --> 
+  </html>

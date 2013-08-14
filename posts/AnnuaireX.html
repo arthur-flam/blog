@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Polytechnique.org + LinkedIn</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Polytechnique.org + LinkedIn">
+  <meta name="author" content="">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="../libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="../libraries/frameworks/io2012/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="../libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="../libraries/highlighters/highlight.js/css/default.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="../libraries/frameworks/io2012/js/slides" 
+    src="../libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+    <link rel="stylesheet" href = "../assets/css/custom.css">
+<link rel="stylesheet" href = "../assets/css/ribbons.css">
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+    <!-- END LOGO SLIDE -->
+    
+
+    <!-- TITLE SLIDE -->
+    <!-- Should I move this to a Local Layout File? -->
+    <slide class="title-slide segue nobackground">
+      <hgroup class="auto-fadein">
+        <h1>Polytechnique.org + LinkedIn</h1>
+        <h2>Crawling -&gt; Steming -&gt; Scoring</h2>
+        <p>Arthur Flam &amp; Karl Neuberger<br/></p>
+      </hgroup>
+      <a href="https://github.com/arthur-flam/FormationR/zipball/gh-pages" class="example">
+        Download
+      </a>
+          </slide>
+
+    <!-- SLIDES -->
+    <slide class="" id="id" style="background:;">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    <style>
+em {font-style: italic}
+strong {font-weight: bold;}
+CSS : libraries\frameworks\io2012\css\default.css
+
+</style>
+
+<h2>Plan</h2>
+
+<ol>
+<li>Objectif initial et difficultés rencontrées</li>
+<li>Présentation du crawling réalisé</li>
+<li>Traitement de <em>text mining</em></li>
+<li>Scoring</li>
+<li>Interface Shiny</li>
+<li>Next steps</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="sommaire" id="id1" style="background:;">
+  <hgroup>
+    <h2>1. Objectif initial et difficultés rencontrées</h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="id" style="background:;">
+  <hgroup>
+    <h2>Objectif initial</h2>
+  </hgroup>
+  <article>
+    <p>Lister des personnes à contacter pendant juillet/août pour alimenter le pipe commercial</p>
+
+<ul>
+<li><strong>Sources</strong> : Linkedin, Annuaires X et HEC</li>
+<li><strong>Cibles</strong> : Directeurs des études des grands groupes ou experts statistiques/Big Data</li>
+<li><strong>Objectif</strong> : En trouver 100</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="id" style="background:;">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    <p><center>
+<img src = "figure/linkedin_directeur-des-etudes.PNG" height="600px">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="id" style="background:;">
+  <hgroup>
+    <h2>Difficultés de la recherche sur LinkedIn</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Recherche textuelle : pas de clusters intelligents</li>
+<li>Sans payer : on n&#39;a accès qu&#39;à ses relations de 1er et 2e niveau</li>
+<li>Tous les X ne sont pas sur &quot;Ecole polytechnique Alumni&quot;</li>
+<li>Difficile de rentrer en contact (In-mails payants, polytechnique.org peu consultés)</li>
+</ul>
+
+<h2>Avantages</h2>
+
+<ul>
+<li>Informations souvent actualisées</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="id" style="background:;">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    <p><center><img src = "figure/rechercheX1.PNG" height="600px"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="id" style="background:;">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    <p><center>
+<img src = "figure/rechercheX2.PNG" height="600px">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="id" style="background:;">
+  <hgroup>
+    <h2>Difficultés de la recherche sur Polytechnique.org</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Recherche avancée pas intelligente</li>
+<li>Peu de résultats</li>
+<li>Profils pas toujours mis à jour</li>
+</ul>
+
+<h2>Avantages</h2>
+
+<ul>
+<li>Souvent : e-mails professionnels</li>
+<li>Informations &quot;premium&quot;</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="id" style="background:;">
+  <hgroup>
+    <h2>Notre idée</h2>
+  </hgroup>
+  <article>
+    <p><center>
+<img src = "figure/idee.jpg" height="200px">
+</center></p>
+
+<ul>
+<li>Croiser les données de Polytechnique.org et LinkedIn</li>
+<li>Recherche intelligente </li>
+<li>Recherche exhaustive</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="sommaire" id="id1" style="background:;">
+  <hgroup>
+    <h2>2. Présentation du crawling réalisé</h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Crawling sur polytechnique.org</h2>
+  </hgroup>
+  <article>
+    <ol>
+<li><strong>Ok</strong> pour tous les X dans le CAC40 (~1600)</li>
+<li>Créeation d&#39;une base de données des pages <code>html</code> de l&#39;annuaire</li>
+<li>On explose le compte de Karl</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Crawling sur Linkedin</h2>
+  </hgroup>
+  <article>
+    <ol>
+<li>Recherche des profils Linkedin sur Google/Bing
+
+<ul>
+<li>Nom + Prénom + Promotion + Linkedin</li>
+<li>Analyse de la correspondance des résultats</li>
+</ul></li>
+<li>Création d&#39;une base de données de profils Linkedin</li>
+<li>Crawling difficile (~250)
+
+<ul>
+<li>Kické par Google même avec les proxies</li>
+</ul></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="sommaire" id="id1" style="background:;">
+  <hgroup>
+    <h2>3. Traitement de <em>text mining</em></h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Text mining 101</h2>
+  </hgroup>
+  <article>
+    <p>Le texte brut n&#39;est pas évident à manipuler, on préfère</p>
+
+<ul>
+<li>enlever les nombres ou la ponctuation</li>
+<li>tout mettre en minuscules</li>
+<li>enlever les mots inutiles</li>
+<li>simplifier les mots <code>stemming</code></li>
+<li class = '..</li>
+</ul>
+
+<p>Librairies'><code>R</code></p>
+
+<ul>
+<li><code>tm</code> : gestion des corpus de texte, batch processing</li>
+<li><code>stringr</code> : manipulation des <code>strings</code></li>
+<li><code>SnowballC</code> : stemming</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="sommaire" id="id1" style="background:;">
+  <hgroup>
+    <h2>4. Scoring</h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Scoring</h2>
+  </hgroup>
+  <article>
+    <p>On s&#39;intéresse aux fréquences d&#39;apparition des mots qui apparaissent de concert avec <code>&quot;statistiques&quot;</code>, <code>&quot;data&quot;</code> ou <code>&quot;études&quot;</code>.</p>
+
+<p>Algorithme inspiré du PageRank
+1. On part de mot <em>racines</em>, on leur donne un score (50%)
+2. On répartit les 50% restants aux mots qui leur sont liés</p>
+
+<ul>
+<li>Qu&#39;est-ce qu&#39;un mot lié ?
+
+<ul>
+<li>un mot qui apparait en même temps que le mot racine</li>
+<li>Attention : il faut enlever les mots qui apparaîssent tout le temps</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>TF-IDF</h2>
+  </hgroup>
+  <article>
+    <h3>Fréquence (Term Frequency)</h3>
+
+<p>La fréquence d&#39;un terme est le nombre d&#39;occurrences de ce terme dans le document considéré (éventuellement avec un log)</p>
+
+<h3>Inverse document frequency</h3>
+
+<p>La fréquence inverse de document est une mesure de l&#39;importance du terme dans l&#39;ensemble du corpus.
+Poids plus important aux termes les moins fréquents, considérés comme plus discriminants</p>
+
+<ul>
+<li>\(\mathrm{idf_i} =  \log \frac{|D|}{|\{d_{j}: t_{i} \in d_{j}\}|}\) avec
+
+<ul>
+<li>\(|D|\) : nombre total de documents dans le corpus</li>
+<li>\(|\{d_{j} : t_{i} \in d_{j}\}|\) : nombre de documents où le terme \(t_{i}\) apparaît</li>
+</ul></li>
+</ul>
+
+<h3>Calcul de tf-idf</h3>
+
+<p>\(\mathrm{tfidf_{i,j}} = \mathrm{tf_{i,j}} \cdot  \mathrm{idf_{i}}\)</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Un exemple</h2>
+  </hgroup>
+  <article>
+    <p>Je suis un <strong>data</strong> <em>scientist</em></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="sommaire" id="id1" style="background:;">
+  <hgroup>
+    <h2>5. Interface shiny</h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    <iframe src="http://www.temp.quantmetry.com:3838/crawlAnnuaire/ShinyApp/" style:'width:100%; border:none'"></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="sommaire" id="id1" style="background:;">
+  <hgroup>
+    <h2>6. Next steps</h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Next steps</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Vaincre Google et Linkedin</li>
+<li>Ajouter Linkedin pour une recherche croisée</li>
+<li>Améliorer l&#39;algo de recherche </li>
+<li>Crawler <em>tous</em> les X, HEC, ECP, Ponts, Mines, Dauphine...</li>
+</ul>
+
+<h2>Décidé</h2>
+
+<ul>
+<li>Crawler tout l&#39;X</li>
+<li>Charger les pages de l&#39;X + CSS dans la BDD</li>
+<li>Faire un joli csv avec les mecs pertinents + nom/prénom/boîte...</li>
+<li>Mails automatiques</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+
+    <slide class="backdrop"></slide>
+  </slides>
+
+  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+<!-- Grab CDN jQuery, fall back to local if offline -->
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="../libraries/widgets/quiz/js/jquery-1.7.min.js"><\/script>')</script>
+<!-- Load Javascripts for Widgets -->
+<!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script> -->
+<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="../libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="../libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ 
+</html>

@@ -1,0 +1,22 @@
+title: Formation R
+tagline: Des ressources pour apprentis Data Scientists
+logo: assets/img/poirot.jpg 
+owner: Arthur Flam
+author:
+  email: arthur.flam@gmail.com
+  github: arthur-flam
+  firstname: Arthur
+  lastname: Flam
+
+social:
+  github: arthur-flam
+  twitter: ArthurFlam
+
+# Choose url: / for local development
+url: http://arthur-flam.github.com/blog/
+rawurl: https://raw.github.com/arthur-flam/blog/gh-pages/
+# url: /
+URL: http://github.com/arthur-flam/blog/
+navigation: 
+  - {item: Home, href: index.html}
+  - {item: About, href: about.html}

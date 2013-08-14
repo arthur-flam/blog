@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fiche Crawling</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="" />
+  <meta name="author" content="arthur.flam@gmail.com,arthur-flam,Arthur,Flam">
+  <link rel="shortcut icon" href="assets/img/poirot.jpg">
+  <link rel="alternate" type="application/rss+xml" href="">
+  <link href="../libraries/frameworks/purus/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../libraries/frameworks/purus/css/bootstrap-responsive.min.css" rel="stylesheet" />
+  <link href="../libraries/frameworks/purus/css/main.css" rel="stylesheet" />
+  <link href="../libraries/highlighters/prettify/css/twitter-bootstrap.css" rel="stylesheet">
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,200,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <style>
+	  #sidebar .sidebar-nav .info h3 a:hover, a:hover { color: #01A9DB; }
+	  #sidebar .sidebar-nav #avatar img, #sidebar .sidebar-nav ul#links li.active a { border-color: #01A9DB; }
+	  #sidebar .sidebar-nav ul#links li a:hover { background: #01A9DB; }
+    p {text-align: justify;}
+  </style>
+  <link rel="stylesheet" href = "../assets/css/custom.css">
+<link rel="stylesheet" href = "../assets/css/ribbons.css">
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div id="sidebar" class="span2">
+			  <div class="sidebar-nav sidebar-nav-fixed">
+			    <a href="https://github.com/arthur-flam/FormationR">
+      <img style="position: absolute; top: 0; left: 100px; border: 0; height: 100px; z-index: 1;" 
+        alt="Fork me on GitHub" 
+        src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" >
+    </a>
+	  <div class="info">
+				    <p id="avatar"><a href="#"><img alt="Title" src="http://ramnathv.github.com/poirotBlog/assets/img/poirot.jpg " /></a></p>
+				    <h3><a href="/">Formation R </a></h3>
+					  <p class="description">Des ressources pour apprentis Data Scientists</p>
+					</div>
+					<ul id="links">
+			        <li><a href="http://ramnathv.github.com/poirotBlog/index.html">Home</a></li>
+        <li><a href="http://ramnathv.github.com/poirotBlog/about.html">About</a></li>
+      
+        <li><a href="http://github.com/arthur-flam" id="Github-link">Github</a></li>
+                
+        <li><a href="http://twitter.com/#!/ArthurFlam" id="Twitter-link">Twitter</a></li>
+      
+			    </ul>
+				</div>
+			</div>
+						<div id="content" class='span10'>
+				<div id="post-wrapper">
+          <ol id="posts">
+            <li class="post">
+              <h3>
+                <a href="#">Fiche Crawling</a>
+              </h3>
+              <span>2013-08-14</span><br/>
+               <a class='label label-success' href='https://raw.github.com/ramnathv/poirotBlog/gh-pages/Crawling.Rmd'>Source</a>
+              <h4>Manipuler les chaînes de caractères</h4>
+<p>Il ne vaut mieux pas utiliser les outiles <code>R</code> de base, incohérents et compliqués.
+Il faut utiliser le package <code>stringr</code></p>
+
+<pre><code>paste(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;, sep=&quot;,&quot;) 
+paste(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;), collapse=&quot;|&quot;)
+paste0(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;) #sep=&quot;&quot; par défaut
+
+library(stringr)
+str_count(string=&quot;il faut utiliser stringr&quot;, pattern=&quot;il&quot;)
+str_detect(string=&quot;il faut utiliser stringr&quot;, pattern=&quot;il&quot;)
+str_extract_all(string=&quot;il faut utiliser stringr&quot;, pattern=&quot;il&quot;)
+str_extract(string=&quot;il faut utiliser stringr&quot;, pattern=&quot;il&quot;)
+str_length(&quot;abcd&quot;) == nchar(&quot;abcd&quot;)
+str_sub(string=&quot;il faut utiliser stringr&quot;, start = 1, end = -9)
+str_trim(&quot;    DDD   &quot;)
+str_replace_all(string=&quot;abca&quot;, pattern=&quot;a&quot;, replacement=&quot;r&quot;)
+</code></pre>
+
+<p>Ensuite, c&#39;est à chacun de connaître la façon de former des expressions régulières !
+Pour d&#39;autres détails :</p>
+
+<pre><code>?regex
+grep
+strsplit
+system(command=&quot;awk ....&quot;)
+</code></pre>
+
+<h4>Se connecter au web</h4>
+
+<p>Pour des besoins simples :</p>
+
+<pre><code>library(RCurl) # librairie très complète
+raw_html = getURL(&quot;www.google.com&quot;)
+</code></pre>
+
+<p>Il est possible d&#39;utiliser tout types de protocoles, POST par exemple : </p>
+
+<pre><code>postForm = postForm(ui=&quot;www.annuaire.com&quot;,
+                    .params = list(region=&quot;corse&quot;)
+                    .opts = list(useragent=&quot;etc....&quot;))
+</code></pre>
+
+<p>Noter qu&#39;il est possible de décrire dans des objects les paramètres de connection (proxies, login) de façon à alléger l&#39;écriture des fonctions qui réalisent les appels au web.</p>
+
+<pre><code>?getURL
+?getCurlHandle
+...
+</code></pre>
+
+<p>####Extraire des informations</p>
+
+<p>Quand on a la page, elle est sous forme de texte brut.
+Il faut la parser pour faire apparaître la structure du HTML.</p>
+
+<pre><code>library(XML)
+doc = htmlParse(raw_html)
+out = xpathApply(doc,&quot;//li[@class=&#39;A&#39;]/input&quot;, function(x) xmlGetAttr(x, &quot;value&quot;))
+out = unlist(out)
+
+?xpathApply
+?xmlGetAttr
+?xmlValue
+</code></pre>
+
+<p>C&#39;est forcement un peu de la cuisine.
+Voir un exemple de code pour se faire une idée !</p>
+
+<h4>Méthode</h4>
+
+<p>A faire avant de crawler :</p>
+
+<ul>
+<li>Regarder si une API existe</li>
+<li>Ouvrir la page avec les outils développeurs de Chrome
+
+<ul>
+<li>&quot;inspecter l&#39;élément&quot; est indispensable</li>
+</ul></li>
+<li><p>Regarder quelles requêtes sont envoyées, on les imitera</p></li>
+<li><p>S&#39;il faut être authentifié, c&#39;est un peu de boulot avec <code>RCurl</code> pour comprendre comment on utilise des cookies mais ça se fait. On a un exemple de code dans le crawl de l&#39;annuaire de l&#39;X.</p></li>
+<li><p>Si la page fait des requêtes AJAX dans tous les sens ça se fait</p></li>
+<li><p>Il faut voir vite si la page est volontairement très protégée.</p></li>
+</ul>
+
+<h4>Attention</h4>
+
+<p>Les sites n&#39;aiment pas être crawlés. Il faut au moins :</p>
+
+<ul>
+<li>changer son IP avec des proxies</li>
+<li>varier son useragent </li>
+<li>Mettre des temps aléatoires (&gt;10s...) entre chaque requête</li>
+</ul>
+
+              <div id="disqus_thread"></div>
+            </li>
+          </ol>
+          <div class="pagination">
+            <ul>
+              <li><a href="http://ramnathv.github.com/poirotBlog/">&#171; Back Home</a></li>
+            </ul>
+          </div> 
+        </div>
+			</div>
+		</div>
+  </div>
+</body>
+  <script src='../libraries/frameworks/purus/js/bootstrap.min.js'></script>
+  <script>
+      var disqus_developer = 1;
+      var disqus_shortname = 'slidify'; 
+      // required: replace example with your forum shortname
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); 
+          dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || 
+           document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="../libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- Google Prettify -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+  <script src='../libraries/highlighters/prettify/js/lang-r.js'></script>
+  <script>
+    var pres = document.getElementsByTagName("pre");
+    for (var i=0; i < pres.length; ++i) {
+      pres[i].className = "prettyprint linenums";
+    }
+    prettyPrint();
+  </script>
+  <!-- End Google Prettify --> 
+  </html>

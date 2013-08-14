@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Mining</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="" />
+  <meta name="author" content="arthur.flam@gmail.com,arthur-flam,Arthur,Flam">
+  <link rel="shortcut icon" href="assets/img/poirot.jpg">
+  <link rel="alternate" type="application/rss+xml" href="">
+  <link href="../libraries/frameworks/purus/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../libraries/frameworks/purus/css/bootstrap-responsive.min.css" rel="stylesheet" />
+  <link href="../libraries/frameworks/purus/css/main.css" rel="stylesheet" />
+  <link href="../libraries/highlighters/prettify/css/twitter-bootstrap.css" rel="stylesheet">
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,200,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <style>
+	  #sidebar .sidebar-nav .info h3 a:hover, a:hover { color: #01A9DB; }
+	  #sidebar .sidebar-nav #avatar img, #sidebar .sidebar-nav ul#links li.active a { border-color: #01A9DB; }
+	  #sidebar .sidebar-nav ul#links li a:hover { background: #01A9DB; }
+    p {text-align: justify;}
+  </style>
+  <link rel="stylesheet" href = "../assets/css/custom.css">
+<link rel="stylesheet" href = "../assets/css/ribbons.css">
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div id="sidebar" class="span2">
+			  <div class="sidebar-nav sidebar-nav-fixed">
+			    <a href="https://github.com/arthur-flam/FormationR">
+      <img style="position: absolute; top: 0; left: 100px; border: 0; height: 100px; z-index: 1;" 
+        alt="Fork me on GitHub" 
+        src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" >
+    </a>
+	  <div class="info">
+				    <p id="avatar"><a href="#"><img alt="Title" src="http://ramnathv.github.com/poirotBlog/assets/img/poirot.jpg " /></a></p>
+				    <h3><a href="/">Formation R </a></h3>
+					  <p class="description">Des ressources pour apprentis Data Scientists</p>
+					</div>
+					<ul id="links">
+			        <li><a href="http://ramnathv.github.com/poirotBlog/index.html">Home</a></li>
+        <li><a href="http://ramnathv.github.com/poirotBlog/about.html">About</a></li>
+      
+        <li><a href="http://github.com/arthur-flam" id="Github-link">Github</a></li>
+                
+        <li><a href="http://twitter.com/#!/ArthurFlam" id="Twitter-link">Twitter</a></li>
+      
+			    </ul>
+				</div>
+			</div>
+						<div id="content" class='span10'>
+				<div id="post-wrapper">
+          <ol id="posts">
+            <li class="post">
+              <h3>
+                <a href="#">Text Mining</a>
+              </h3>
+              <span>2013-08-14</span><br/>
+               <a class='label label-success' href='https://raw.github.com/ramnathv/poirotBlog/gh-pages/textMining.Rmd'>Source</a>
+              <h1>Algos utiles : florilège</h1>
+<p>A lire <em>with a bit of salt</em>, car les idées à la base des méthodes présentées ici s&#39;adaptent aux problèmes connexes.
+Qu&#39;on ne me dise pas &quot;oula, non, c&#39;est QUE de la classification pas du clustering...&quot;</p>
+
+<h2>Text mining</h2>
+
+<h3>Workflow courant en préatraitement</h3>
+
+<ul>
+<li>All lower-case</li>
+<li>Remove punctuation, etc</li>
+<li>Remove common words</li>
+<li>Stemming (Porter&#39;s stemming...)</li>
+</ul>
+
+<h3>Méthodes d&#39;ananlyse typiques en NLP</h3>
+
+<ul>
+<li>tf-idf</li>
+<li>Dérivés du PageRank ou de HITS</li>
+<li><a href="http://cran.r-project.org/web/packages/topicmodels/index.html">LDA</a></li>
+</ul>
+
+<h3>Des problèmes courants</h3>
+
+<p>De l&#39;indispensable...</p>
+
+<ul>
+<li>Language detection</li>
+<li>Spam detection</li>
+<li>Maybe some spelling checks</li>
+</ul>
+
+<p>Au plus compliqué :</p>
+
+<ul>
+<li>Analyse de sentiments</li>
+<li>Entity extraction</li>
+<li>Tagging</li>
+<li>Automatic summaries</li>
+<li>Translation</li>
+<li>Compréhension du langage naturel</li>
+</ul>
+
+<h2>Packages</h2>
+
+<ul>
+<li><code>tm</code> fournit tout ce qu&#39;il faut pour bien commencer </li>
+<li>Pour faire de jolis wordclouds : <code>tagcloud</code> est bien, sinon il y a <code>wordclouds</code>.</li>
+<li><a href="http://cran.r-project.org/web/packages/RTextTools/index.html"><code>RTextTools</code></a> pour faire de la classification</li>
+<li><code>Snowball</code> fait du stemming dans R</li>
+<li><code>qdap</code> est nouveau, je ne sais pas trop à quoi ça sert mais au cas où... </li>
+</ul>
+
+<h2>Ressources</h2>
+
+<h4>Datasets</h4>
+
+<ul>
+<li>ENRON dataset</li>
+<li>Google n-grams</li>
+</ul>
+
+<h4>Learn</h4>
+
+<ul>
+<li>Un <a href="http://perso.uclouvain.be/vincent.blondel/publications/08-textmining.pdf">gros bouquin de text mining</a></li>
+<li>RTextTools <a href="http://www.rtexttools.com/">blog &amp; tutorial</a></li>
+<li><a href="http://mediamining.univ-lyon2.fr/people/velcin//public/TM/td3-sujet.pdf">TD sur <code>tm</code></a></li>
+</ul>
+
+<h3>Be inspired</h3>
+
+<ul>
+<li><a href="http://heuristically.wordpress.com/2011/04/08/text-data-mining-twitter-r/#comment-103">R+Twitter</a></li>
+<li>aussi <a href="http://www.rdatamining.com/examples/text-mining">ici</a> et <a href="http://practicalquant.blogspot.fr/2010/04/text-mining-and-twitter.html">là</a></li>
+<li>Idéologie du <a href="http://www.r-bloggers.com/the-rapidly-increasing-ideology-of-the-us-republican-party/">parti Républicain</a></li>
+</ul>
+
+<h3>Avec d&#39;autres langagues que R</h3>
+
+<ul>
+<li><a href="http://nltk.org/">NLTK</a> en Python</li>
+<li><a href="http://www.clips.ua.ac.be/pages/pattern-en">Pattern</a> en Python</li>
+</ul>
+
+              <div id="disqus_thread"></div>
+            </li>
+          </ol>
+          <div class="pagination">
+            <ul>
+              <li><a href="http://ramnathv.github.com/poirotBlog/">&#171; Back Home</a></li>
+            </ul>
+          </div> 
+        </div>
+			</div>
+		</div>
+  </div>
+</body>
+  <script src='../libraries/frameworks/purus/js/bootstrap.min.js'></script>
+  <script>
+      var disqus_developer = 1;
+      var disqus_shortname = 'slidify'; 
+      // required: replace example with your forum shortname
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); 
+          dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || 
+           document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="../libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- Google Prettify -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+  <script src='../libraries/highlighters/prettify/js/lang-r.js'></script>
+  <script>
+    var pres = document.getElementsByTagName("pre");
+    for (var i=0; i < pres.length; ++i) {
+      pres[i].className = "prettyprint linenums";
+    }
+    prettyPrint();
+  </script>
+  <!-- End Google Prettify --> 
+  </html>
