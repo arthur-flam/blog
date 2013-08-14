@@ -2,7 +2,7 @@ mode     : selfcontained
 framework: purus
 github:
   user: arthur-flam
-  repo: poirot
+  repo: blog
 
 # HIGHLIGHTER SETTINGS
 highlighter: prettify
